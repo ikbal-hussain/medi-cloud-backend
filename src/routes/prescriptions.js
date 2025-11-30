@@ -43,7 +43,7 @@ router.get('/', checkTenantAccess, async (req, res) => {
       medications: prescription.medications,
       diagnosis: prescription.diagnosis,
       notes: prescription.notes,
-      createdAt: prescription.createdAt,
+      createdAt: prescription.createdAt ? new Date(prescription.createdAt).toISOString() : new Date().toISOString(),
     })));
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -74,7 +74,7 @@ router.get('/:id', checkTenantAccess, async (req, res) => {
       medications: prescription.medications,
       diagnosis: prescription.diagnosis,
       notes: prescription.notes,
-      createdAt: prescription.createdAt,
+      createdAt: prescription.createdAt ? new Date(prescription.createdAt).toISOString() : new Date().toISOString(),
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -121,7 +121,7 @@ router.post('/', authorize('DOCTOR', 'SUPER_ADMIN'), checkTenantAccess, async (r
       medications: populated.medications,
       diagnosis: populated.diagnosis,
       notes: populated.notes,
-      createdAt: populated.createdAt,
+      createdAt: populated.createdAt ? new Date(populated.createdAt).toISOString() : new Date().toISOString(),
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -166,7 +166,7 @@ router.put('/:id', authorize('DOCTOR', 'SUPER_ADMIN'), checkTenantAccess, async 
       medications: populated.medications,
       diagnosis: populated.diagnosis,
       notes: populated.notes,
-      createdAt: populated.createdAt,
+      createdAt: populated.createdAt ? new Date(populated.createdAt).toISOString() : new Date().toISOString(),
     });
   } catch (error) {
     res.status(500).json({ error: error.message });

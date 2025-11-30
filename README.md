@@ -30,7 +30,17 @@ NODE_ENV=development
 
 3. Make sure MongoDB is running on your system
 
-4. (Optional) Initialize a SUPER_ADMIN user:
+4. (Optional) Initialize demo data with hospital admins:
+```bash
+npm run init:demo
+```
+This creates demo hospitals and users:
+- **City Hospital Admin**: `admin@city.com` / `admin123`
+- **City Hospital Doctor**: `doc@city.com` / `doc123`
+- **City Hospital Receptionist**: `nurse@city.com` / `nurse123`
+- **Galaxy Care Admin**: `admin@galaxy.com` / `admin123`
+
+Or initialize a SUPER_ADMIN user:
 ```bash
 npm run init:admin
 ```

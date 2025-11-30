@@ -30,7 +30,7 @@ router.get('/', checkTenantAccess, async (req, res) => {
       type: patient.type,
       phoneNumber: patient.phoneNumber,
       address: patient.address,
-      admissionDate: patient.admissionDate,
+      admissionDate: patient.admissionDate ? new Date(patient.admissionDate).toISOString() : new Date().toISOString(),
       status: patient.status,
     })));
   } catch (error) {
@@ -61,7 +61,7 @@ router.get('/:id', checkTenantAccess, async (req, res) => {
       type: patient.type,
       phoneNumber: patient.phoneNumber,
       address: patient.address,
-      admissionDate: patient.admissionDate,
+      admissionDate: patient.admissionDate ? new Date(patient.admissionDate).toISOString() : new Date().toISOString(),
       status: patient.status,
     });
   } catch (error) {
@@ -104,7 +104,7 @@ router.post('/', checkTenantAccess, async (req, res) => {
       type: patient.type,
       phoneNumber: patient.phoneNumber,
       address: patient.address,
-      admissionDate: patient.admissionDate,
+      admissionDate: patient.admissionDate ? new Date(patient.admissionDate).toISOString() : new Date().toISOString(),
       status: patient.status,
     });
   } catch (error) {
@@ -147,7 +147,7 @@ router.put('/:id', checkTenantAccess, async (req, res) => {
       type: patient.type,
       phoneNumber: patient.phoneNumber,
       address: patient.address,
-      admissionDate: patient.admissionDate,
+      admissionDate: patient.admissionDate ? new Date(patient.admissionDate).toISOString() : new Date().toISOString(),
       status: patient.status,
     });
   } catch (error) {

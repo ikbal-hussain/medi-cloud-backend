@@ -8,6 +8,7 @@
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "init:admin": "node src/scripts/initSuperAdmin.js",
+    "init:demo": "node src/scripts/initDemoData.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
