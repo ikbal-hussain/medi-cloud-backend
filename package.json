@@ -1,0 +1,20 @@
+{
+  "name": "medi-cloud-backend",
+  "version": "1.0.0",
+  "description": "hospital management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikbal-hussain/medi-cloud-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikbal-hussain/medi-cloud-backend/issues"
+  },
+  "homepage": "https://github.com/ikbal-hussain/medi-cloud-backend#readme"
+}
