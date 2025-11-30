@@ -2,8 +2,12 @@
   "name": "medi-cloud-backend",
   "version": "1.0.0",
   "description": "hospital management system",
-  "main": "index.js",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "init:admin": "node src/scripts/initSuperAdmin.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/ikbal-hussain/medi-cloud-backend/issues"
   },
-  "homepage": "https://github.com/ikbal-hussain/medi-cloud-backend#readme"
+  "homepage": "https://github.com/ikbal-hussain/medi-cloud-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5"
+  }
 }
