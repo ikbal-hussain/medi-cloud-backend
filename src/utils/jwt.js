@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken';
+import { setting } from '../config/env.js';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-this-in-production';
+// Deployed, a missing JWT_SECRET stops the server: the dev fallback is public, so tokens signed with it could be forged.
+const JWT_SECRET = setting('JWT_SECRET', 'local-dev-only-jwt-secret');
 const JWT_EXPIRES_IN = '7d';
 
 export const generateToken = (payload) => {
