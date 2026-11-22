@@ -2,9 +2,9 @@
 
 > A robust RESTful API for hospital management system with multi-tenant architecture, JWT authentication, and role-based access control.
 
-**🌐 Live API:** [https://medi-cloud-backend.onrender.com](https://medi-cloud-backend.onrender.com)
+**🌐 Live API:** `https://medi-cloud-backend.vercel.app/api` (on Vercel)
 
-**Health Check:** [https://medi-cloud-backend.onrender.com/api/health](https://medi-cloud-backend.onrender.com/api/health)
+**Health Check:** [https://medi-cloud-backend.vercel.app/api/health](https://medi-cloud-backend.vercel.app/api/health)
 
 ---
 
@@ -61,6 +61,8 @@
    NODE_ENV=development
    ```
 
+   On Vercel, `MONGODB_URI` and `JWT_SECRET` must be set: there's no fallback for them once deployed. `CORS_ORIGINS` lists the app origins allowed to call the API (comma-separated; defaults to `https://medi-cloud-app.netlify.app`).
+
 4. **Initialize demo data (Optional)**
    ```bash
    npm run init:demo
@@ -87,8 +89,8 @@
 
 ## 📚 API Documentation
 
-Base URL: `https://medi-cloud-backend.onrender.com/api` (Production)  
-Local: `http://localhost:3000/api` (Development)
+Base URL: `https://medi-cloud-backend.vercel.app` (Production; endpoints below include `/api`)  
+Local: `http://localhost:3000` (Development)
 
 ### 🔑 Authentication Endpoints
 
@@ -154,7 +156,7 @@ Authorization: Bearer <your-jwt-token>
 ### Example Request
 
 ```bash
-curl -X GET https://medi-cloud-backend.onrender.com/api/patients \
+curl -X GET https://medi-cloud-backend.vercel.app/api/patients \
   -H "Authorization: Bearer YOUR_JWT_TOKEN"
 ```
 
@@ -187,7 +189,7 @@ curl -X GET https://medi-cloud-backend.onrender.com/api/patients \
 ### Register a Hospital
 
 ```bash
-curl -X POST https://medi-cloud-backend.onrender.com/api/auth/register \
+curl -X POST https://medi-cloud-backend.vercel.app/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "hospitalName": "City Hospital",
@@ -200,7 +202,7 @@ curl -X POST https://medi-cloud-backend.onrender.com/api/auth/register \
 ### Login
 
 ```bash
-curl -X POST https://medi-cloud-backend.onrender.com/api/auth/login \
+curl -X POST https://medi-cloud-backend.vercel.app/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "admin@city.com",
@@ -211,7 +213,7 @@ curl -X POST https://medi-cloud-backend.onrender.com/api/auth/login \
 ### Get Patients (Authenticated)
 
 ```bash
-curl -X GET https://medi-cloud-backend.onrender.com/api/patients \
+curl -X GET https://medi-cloud-backend.vercel.app/api/patients \
   -H "Authorization: Bearer YOUR_JWT_TOKEN"
 ```
 
@@ -243,7 +245,10 @@ medi-cloud-backend/
 │   │   └── initDemoData.js      # Initialize demo data
 │   ├── utils/
 │   │   └── jwt.js               # JWT utilities
-│   └── server.js                 # Main server file
+│   ├── app.js                    # Express app (shared by server.js and Vercel)
+│   └── server.js                 # Local server
+├── api/index.js                  # Vercel entry point
+├── vercel.json                   # Vercel config
 ├── .env                          # Environment variables
 ├── package.json                  # Dependencies
 └── README.md                     # This file
@@ -257,7 +262,7 @@ medi-cloud-backend/
 - ✅ JWT token-based authentication
 - ✅ Role-based access control
 - ✅ Multi-tenant data isolation
-- ✅ CORS enabled for cross-origin requests
+- ✅ CORS limited to the app's origins (`CORS_ORIGINS`)
 - ✅ Input validation and error handling
 
 ---
