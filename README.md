@@ -2,7 +2,7 @@
 
 > A robust RESTful API for hospital management system with multi-tenant architecture, JWT authentication, and role-based access control.
 
-**🌐 Live API:** [https://medi-cloud-backend.vercel.app](https://medi-cloud-backend.vercel.app)
+**🌐 Live API:** `https://medi-cloud-backend.vercel.app/api` (on Vercel)
 
 **Health Check:** [https://medi-cloud-backend.vercel.app/api/health](https://medi-cloud-backend.vercel.app/api/health)
 
@@ -61,7 +61,7 @@
    NODE_ENV=development
    ```
 
-   On Vercel (production), `MONGODB_URI` and `JWT_SECRET` are required, and `CORS_ORIGINS` lists the allowed app origins (comma-separated, defaults to `https://medi-cloud-app.netlify.app`). When deployed there are no fallback values for these.
+   On Vercel, `MONGODB_URI` and `JWT_SECRET` must be set: there's no fallback for them once deployed. `CORS_ORIGINS` lists the app origins allowed to call the API (comma-separated; defaults to `https://medi-cloud-app.netlify.app`).
 
 4. **Initialize demo data (Optional)**
    ```bash
