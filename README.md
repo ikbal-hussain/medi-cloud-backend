@@ -89,8 +89,8 @@
 
 ## 📚 API Documentation
 
-Base URL: `https://medi-cloud-backend.vercel.app/api` (Production)  
-Local: `http://localhost:3000/api` (Development)
+Base URL: `https://medi-cloud-backend.vercel.app` (Production; endpoints below include `/api`)  
+Local: `http://localhost:3000` (Development)
 
 ### 🔑 Authentication Endpoints
 
