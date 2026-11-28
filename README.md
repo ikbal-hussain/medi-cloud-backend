@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> **This repository is archived and read-only.** The Medi Cloud API now lives in the
+> [medi-cloud monorepo](https://github.com/ikbal-hussain/medi-cloud) under [`apps/api`](https://github.com/ikbal-hussain/medi-cloud/tree/main/apps/api),
+> rewritten in TypeScript on PostgreSQL. The live API at https://medi-cloud-backend.vercel.app/api is built from there
+> ([interactive API docs](https://medi-cloud-backend.vercel.app/api/docs)). The MongoDB code below is kept for history only.
+
 # 🏥 Medi Cloud Backend
 
 > A robust RESTful API for hospital management system with multi-tenant architecture, JWT authentication, and role-based access control.
